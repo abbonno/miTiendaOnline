@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block main %}
+<main>
+    
+    <div class="card" style="margin: 20px;">
+        <div class="card-header">
+          {{item.category}}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{item.title}}</h5>
+          <img src="{{item.image}}" class="card-img-top" alt="{{item.title}}" style="height: 200px; object-fit: contain">
+          <p class="card-text">{{item.description}}</p>
+          <p class="card-text">Valoración: {{item.rating.rate}}</p>
+          <p class="card-text">Votaciones: {{item.rating.count}}</p>
+          <p class="card-text">Precio: {{item.price}} $</p>
+          <a href="/carrito/add/{{item.id}}" class="btn btn-primary">Añadir al carrito</a>
+        </div>
+      </div>
+
+</main>
+{% endblock %}
