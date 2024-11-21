@@ -1,0 +1,25 @@
+<!-- Formulario de inicio de sesión. Variable introducida: loginError -->
+{% extends "base.html" %}
+{% block main %}
+<main>
+    <div style="margin: 5%;">
+        <form method="post" action="/login">
+            <div class="form-group">
+                <label for="email">Username</label>
+                <input type="text" class="form-control" id="u" name="user" placeholder="Introduzca su nombre de usuario" required>
+                <small id="emailHelp" class="form-text text-muted">(apartado username de la db users) m38rmF$ 83r5^_ kevinryan kev02937@</small>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="margin:10px">Submit</button>
+        </form>
+        {% if loginError %}
+            <div class="alert alert-warning text-center" role="alert" style="position: absolute; left: 50%; transform: translate(-50%, -50%);">
+                Usuario o contraseña incorrectos.
+            </div>
+        {% endif %}
+    </div>
+</main>
+{% endblock %}

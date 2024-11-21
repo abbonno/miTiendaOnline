@@ -1,0 +1,16 @@
+<!-- Página de bienvenida tras el login. Variables globales: usuario -->
+{% extends "base.html" %}
+{% block main %}
+<main>
+    
+    <header class="bg-body-tertiary text-center text-lg-start">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.5);">
+            {% if usuario %}
+                <h1>Hola, {{ usuario }}</h1>
+            {% else %}
+                <h1>Vuelve pronto!</h1>
+            {% endif %}
+        </div>
+    </header>
+</main>
+{% endblock %}

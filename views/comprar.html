@@ -1,3 +1,4 @@
+<!-- Información particular de un artículo elegido. Variable introducida: item -->
 {% extends "base.html" %}
 {% block main %}
 <main>
@@ -13,7 +14,26 @@
           <p class="card-text">Valoración: {{item.rating.rate}}</p>
           <p class="card-text">Votaciones: {{item.rating.count}}</p>
           <p class="card-text">Precio: {{item.price}} $</p>
-          <a href="/carrito/add/{{item.id}}" class="btn btn-primary">Añadir al carrito</a>
+          {% if admin %}
+            <form id="edit-product-form" action="/modificar-producto/{{item.id}}" method="POST">
+              
+              <div>
+                <label for="title">Título:</label>
+                <input type="text" id="title" name="title">
+              </div>
+
+              <div>
+                <label for="price">Precio:</label>
+                <input type="number" id="price" name="price">
+              </div>
+              
+              <button type="submit" class="btn btn-primary">Modificar</button>
+            </form>
+          {% elseif usuario %}
+            <a href="/carrito/add/{{item.id}}" class="btn btn-primary">Añadir al carrito</a>
+          {% else %}
+            <a href="/login" class="btn btn-secondary">Inicia sesión para añadir al carro</a>
+          {% endif %}
         </div>
       </div>
 

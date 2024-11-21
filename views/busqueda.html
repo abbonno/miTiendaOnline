@@ -1,3 +1,4 @@
+<!-- Página de búsqueda tras introducir un nombre o un título en la barra. Variable introducida: productos -->
 {% extends "base.html" %}
 {% block main %}
 <main>
@@ -9,7 +10,7 @@
           <img src="{{ p.image }}" class="card-img-top" alt="{{ p.title }}" style="height: 200px; object-fit: contain !important">
           <div class="card-body" style="height: 220px;">
             <h5 class="card-title"> {{ p.title }} </h5>
-            <p class="card-text"> {{ p.description | truncate(80) }} </p>
+            <p class="card-text"> {{ p.description | truncate(80) }} </p> <!-- Truncate sirve para evitar que salgan más de 80 caracteres de la descripción -->
             <a href="/comprar/{{p.id}}" class="btn btn-primary"> Más información </a>
           </div>
         </div>
