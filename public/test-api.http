@@ -1,0 +1,17 @@
+// test-api.http
+
+GET http://localhost:8000/api/ratings/
+
+###          
+
+GET http://localhost:8000/api/ratings/6704279c52b4f7d8da2aa53d
+
+###
+
+PUT http://localhost:8000/api/ratings/6704279c52b4f7d8da2aa53d
+content-type: application/json
+
+{
+    "rate":2
+}
+// ...
