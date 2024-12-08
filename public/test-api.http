@@ -4,11 +4,11 @@ GET http://localhost:8000/api/ratings/
 
 ###          
 
-GET http://localhost:8000/api/ratings/6704279c52b4f7d8da2aa53d
+GET http://localhost:8000/api/ratings/12
 
 ###
 
-PUT http://localhost:8000/api/ratings/6704279c52b4f7d8da2aa53d
+PUT http://localhost:8000/api/ratings/12
 content-type: application/json
 
 {

@@ -12,6 +12,9 @@
             <h5 class="card-title"> {{ p.title }} </h5>
             <p class="card-text"> {{ p.description | truncate(80) }} </p> <!-- Truncate sirve para evitar que salgan más de 80 caracteres de la descripción -->
             <a href="/comprar/{{p.id}}" class="btn btn-primary"> Más información </a>
+            <p><span class="stars" data-_id="{{p.id}}"> 
+              Aqui irá el rating de {{p.id}}
+            </span></p>
           </div>
         </div>
       </div>

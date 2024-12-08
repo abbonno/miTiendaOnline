@@ -19,9 +19,12 @@
         <div class="col-4" style="margin: 10px 0px;">
           <div class="card" style="width: 25rem">
             <img src="{{ p.image }}" class="card-img-top" alt="{{ p.title }}" style="height: 200px; object-fit: contain">
-            <div class="card-body" style="height: 220px;">
+            <div class="card-body" style="height: 250px;">
               <h5 class="card-title"> {{ p.title }} </h5>
               <p class="card-text"> {{ p.description | truncate(80) }} </p>
+              <p><span class="stars" data-id={{p.id}}> 
+                Aqui irá el rating de {{p.id}}
+              </span></p>
               <a href="/comprar/{{p.id}}" class="btn btn-primary"> Más información </a>
             </div>
           </div>

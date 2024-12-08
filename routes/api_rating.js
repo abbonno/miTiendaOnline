@@ -23,7 +23,7 @@ router.get('/api/ratings', async (req, res) => {
  */
 router.get('/api/ratings/:id', async (req, res) => {
     try {
-        const producto = await Productos.findById({ _id: req.params.id }, 'rating'); // Selecciona solo el campo `rating`
+        const producto = await Productos.findOne({ id: req.params.id }, 'rating'); // Selecciona solo el campo `rating`
         if (!producto) {
             return res.status(404).json({ error: 'Producto no encontrado' });
         }
@@ -38,7 +38,7 @@ router.get('/api/ratings/:id', async (req, res) => {
    * PUT /api/ratings/:id
    * Modifica el rating del producto con el id dado
    */
-  router.put('/api/ratings/:id', async (req, res) => {
+    router.put('/api/ratings/:id', async (req, res) => {
     const { rate } = req.body;
   
     // Validar el rating (por ejemplo, que esté entre 1 y 5)
@@ -47,7 +47,7 @@ router.get('/api/ratings/:id', async (req, res) => {
     }
   
     try {
-        const producto = await Productos.findById(req.params.id);
+        const producto = await Productos.findOne({id: req.params.id});
         if (!producto) {
             return res.status(404).send({ error: "Producto no encontrado" });
         }
@@ -55,7 +55,7 @@ router.get('/api/ratings/:id', async (req, res) => {
         const cuenta = producto.rating.count + 1;
         const media = (producto.rating.rate*producto.rating.count + rate) / cuenta;
         const updateProduct = await Productos.findOneAndUpdate(
-            { _id: req.params.id },
+            { id: req.params.id },
             { rating: { rate: media, count: cuenta } }, // Actualiza el campo `rating`
             { new: true, runValidators: true } // Devuelve el documento actualizado
         );
@@ -68,6 +68,6 @@ router.get('/api/ratings/:id', async (req, res) => {
         console.error("Error al modificar el rating del producto:", err);
         res.status(500).json({ error: 'Error al modificar el rating del producto' });
     }
-  });
+    });
 
 export default router
