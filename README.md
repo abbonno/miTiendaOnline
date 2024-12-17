@@ -10,3 +10,6 @@ Depencencias (npm i):
 - chokidar
 - express-session
 - jsonwebtoken
+
+## Prueba react
+Se trata de otro subproyecto en el que se ha practicado con el framework React en Vite. Se emplea Tailwind para el maquetado.
